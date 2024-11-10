@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.cbModelo = new System.Windows.Forms.ComboBox();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnPesquisar = new System.Windows.Forms.Button();
             this.grdVeiculos = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -56,6 +56,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar veículo";
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.Teal;
+            this.btnPesquisar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisar.Location = new System.Drawing.Point(237, 139);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(142, 55);
+            this.btnPesquisar.TabIndex = 3;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // cbModelo
             // 
             this.cbModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -63,7 +75,7 @@
             this.cbModelo.Location = new System.Drawing.Point(224, 84);
             this.cbModelo.Name = "cbModelo";
             this.cbModelo.Size = new System.Drawing.Size(288, 28);
-            this.cbModelo.TabIndex = 6;
+            this.cbModelo.TabIndex = 2;
             // 
             // cbMarca
             // 
@@ -72,7 +84,7 @@
             this.cbMarca.Location = new System.Drawing.Point(224, 45);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(288, 28);
-            this.cbMarca.TabIndex = 5;
+            this.cbMarca.TabIndex = 1;
             // 
             // label2
             // 
@@ -92,17 +104,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Selecione a marca";
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.Teal;
-            this.btnPesquisar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisar.Location = new System.Drawing.Point(237, 139);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(142, 55);
-            this.btnPesquisar.TabIndex = 16;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            // 
             // grdVeiculos
             // 
             this.grdVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -110,7 +111,8 @@
             this.grdVeiculos.Location = new System.Drawing.Point(3, 22);
             this.grdVeiculos.Name = "grdVeiculos";
             this.grdVeiculos.Size = new System.Drawing.Size(622, 252);
-            this.grdVeiculos.TabIndex = 17;
+            this.grdVeiculos.TabIndex = 0;
+            this.grdVeiculos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVeiculos_CellClick);
             // 
             // groupBox2
             // 
@@ -119,7 +121,7 @@
             this.groupBox2.Location = new System.Drawing.Point(18, 232);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(628, 277);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Veículos encontrados";
             // 
@@ -136,6 +138,7 @@
             this.Name = "frmConsultarVeiculos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Veículos";
+            this.Load += new System.EventHandler(this.frmConsultarVeiculos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdVeiculos)).EndInit();

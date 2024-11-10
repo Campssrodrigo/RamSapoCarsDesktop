@@ -34,12 +34,12 @@
             this.dtpFinal = new System.Windows.Forms.DateTimePicker();
             this.dtpInicial = new System.Windows.Forms.DateTimePicker();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.cbModelo = new System.Windows.Forms.ComboBox();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbModelo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -52,7 +52,7 @@
             this.groupBox2.Location = new System.Drawing.Point(21, 232);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(628, 277);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vendas encontrados";
             // 
@@ -63,7 +63,8 @@
             this.grdResultado.Location = new System.Drawing.Point(3, 22);
             this.grdResultado.Name = "grdResultado";
             this.grdResultado.Size = new System.Drawing.Size(622, 252);
-            this.grdResultado.TabIndex = 17;
+            this.grdResultado.TabIndex = 0;
+            this.grdResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResultado_CellClick);
             // 
             // groupBox1
             // 
@@ -80,7 +81,7 @@
             this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(634, 214);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar Marca e Modelos";
             // 
@@ -90,7 +91,7 @@
             this.dtpFinal.Location = new System.Drawing.Point(425, 93);
             this.dtpFinal.Name = "dtpFinal";
             this.dtpFinal.Size = new System.Drawing.Size(169, 26);
-            this.dtpFinal.TabIndex = 17;
+            this.dtpFinal.TabIndex = 4;
             // 
             // dtpInicial
             // 
@@ -98,7 +99,7 @@
             this.dtpInicial.Location = new System.Drawing.Point(132, 94);
             this.dtpInicial.Name = "dtpInicial";
             this.dtpInicial.Size = new System.Drawing.Size(145, 26);
-            this.dtpInicial.TabIndex = 17;
+            this.dtpInicial.TabIndex = 3;
             // 
             // btnPesquisar
             // 
@@ -107,9 +108,19 @@
             this.btnPesquisar.Location = new System.Drawing.Point(264, 142);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(142, 55);
-            this.btnPesquisar.TabIndex = 16;
+            this.btnPesquisar.TabIndex = 5;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // cbModelo
+            // 
+            this.cbModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbModelo.FormattingEnabled = true;
+            this.cbModelo.Location = new System.Drawing.Point(377, 45);
+            this.cbModelo.Name = "cbModelo";
+            this.cbModelo.Size = new System.Drawing.Size(217, 28);
+            this.cbModelo.TabIndex = 2;
             // 
             // cbMarca
             // 
@@ -118,7 +129,7 @@
             this.cbMarca.Location = new System.Drawing.Point(77, 45);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(200, 28);
-            this.cbMarca.TabIndex = 5;
+            this.cbMarca.TabIndex = 1;
             // 
             // label3
             // 
@@ -138,15 +149,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Data Incial";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Marca";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -156,14 +158,14 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Modelo";
             // 
-            // cbModelo
+            // label1
             // 
-            this.cbModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbModelo.FormattingEnabled = true;
-            this.cbModelo.Location = new System.Drawing.Point(377, 45);
-            this.cbModelo.Name = "cbModelo";
-            this.cbModelo.Size = new System.Drawing.Size(217, 28);
-            this.cbModelo.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Marca";
             // 
             // frmConsultarVendasMarcaModelo
             // 
@@ -178,6 +180,7 @@
             this.Name = "frmConsultarVendasMarcaModelo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Vendas Marca Modelo";
+            this.Load += new System.EventHandler(this.frmConsultarVendasMarcaModelo_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).EndInit();
             this.groupBox1.ResumeLayout(false);

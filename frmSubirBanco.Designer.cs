@@ -30,11 +30,11 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbInfomacoes = new System.Windows.Forms.ComboBox();
-            this.btnCadastrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.grdDadosOff = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.grdDadosOff = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDadosOff)).BeginInit();
@@ -66,17 +66,6 @@
             this.cbInfomacoes.Size = new System.Drawing.Size(378, 28);
             this.cbInfomacoes.TabIndex = 4;
             // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(297, 348);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(153, 51);
-            this.btnCadastrar.TabIndex = 3;
-            this.btnCadastrar.Text = "Gravar Online";
-            this.btnCadastrar.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -85,6 +74,17 @@
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Selecione a tela";
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnCadastrar.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrar.Location = new System.Drawing.Point(297, 348);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(153, 51);
+            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.Text = "Gravar Online";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
@@ -99,14 +99,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados Off-Line";
             // 
-            // grdDadosOff
-            // 
-            this.grdDadosOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdDadosOff.Location = new System.Drawing.Point(-3, 25);
-            this.grdDadosOff.Name = "grdDadosOff";
-            this.grdDadosOff.Size = new System.Drawing.Size(759, 285);
-            this.grdDadosOff.TabIndex = 0;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -117,6 +109,14 @@
             this.label1.Size = new System.Drawing.Size(324, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Para excluir, clique 2 vezes na linha desejada";
+            // 
+            // grdDadosOff
+            // 
+            this.grdDadosOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDadosOff.Location = new System.Drawing.Point(-3, 25);
+            this.grdDadosOff.Name = "grdDadosOff";
+            this.grdDadosOff.Size = new System.Drawing.Size(759, 285);
+            this.grdDadosOff.TabIndex = 0;
             // 
             // frmSubirBanco
             // 

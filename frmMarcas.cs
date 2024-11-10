@@ -21,7 +21,7 @@ namespace RamSapoCarsDesktop
         #region Eventos
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            if (validarCampos())
             {
 
             }
@@ -29,7 +29,7 @@ namespace RamSapoCarsDesktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            limparCampos();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -54,7 +54,13 @@ namespace RamSapoCarsDesktop
         #endregion
 
         #region Métodos
-        private bool ValidarCampos()
+
+        private void limparCampos()
+        {
+            txtMarca.Clear();
+            txtMarca.Focus();
+        }
+        private bool validarCampos()
         {
             bool flag = true;
             string campos = string.Empty;

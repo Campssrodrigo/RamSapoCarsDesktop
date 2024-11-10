@@ -31,13 +31,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdResultado = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtpInicial = new System.Windows.Forms.DateTimePicker();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.cbVendedor = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpInicial = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpFinal = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -50,7 +50,7 @@
             this.groupBox2.Location = new System.Drawing.Point(21, 232);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(628, 277);
-            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vendedores encontrados";
             // 
@@ -61,7 +61,8 @@
             this.grdResultado.Location = new System.Drawing.Point(3, 22);
             this.grdResultado.Name = "grdResultado";
             this.grdResultado.Size = new System.Drawing.Size(622, 252);
-            this.grdResultado.TabIndex = 17;
+            this.grdResultado.TabIndex = 0;
+            this.grdResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResultado_CellClick);
             // 
             // groupBox1
             // 
@@ -76,9 +77,25 @@
             this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(634, 214);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar vendas por vendedor";
+            // 
+            // dtpFinal
+            // 
+            this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFinal.Location = new System.Drawing.Point(382, 94);
+            this.dtpFinal.Name = "dtpFinal";
+            this.dtpFinal.Size = new System.Drawing.Size(130, 26);
+            this.dtpFinal.TabIndex = 3;
+            // 
+            // dtpInicial
+            // 
+            this.dtpInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpInicial.Location = new System.Drawing.Point(140, 94);
+            this.dtpInicial.Name = "dtpInicial";
+            this.dtpInicial.Size = new System.Drawing.Size(130, 26);
+            this.dtpInicial.TabIndex = 2;
             // 
             // btnPesquisar
             // 
@@ -87,9 +104,10 @@
             this.btnPesquisar.Location = new System.Drawing.Point(232, 153);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(142, 55);
-            this.btnPesquisar.TabIndex = 16;
+            this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // cbVendedor
             // 
@@ -98,33 +116,7 @@
             this.cbVendedor.Location = new System.Drawing.Point(224, 45);
             this.cbVendedor.Name = "cbVendedor";
             this.cbVendedor.Size = new System.Drawing.Size(288, 28);
-            this.cbVendedor.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Selecione o vendedor";
-            // 
-            // dtpInicial
-            // 
-            this.dtpInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInicial.Location = new System.Drawing.Point(140, 94);
-            this.dtpInicial.Name = "dtpInicial";
-            this.dtpInicial.Size = new System.Drawing.Size(130, 26);
-            this.dtpInicial.TabIndex = 17;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Data Incial";
+            this.cbVendedor.TabIndex = 1;
             // 
             // label3
             // 
@@ -135,13 +127,23 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Data Final";
             // 
-            // dtpFinal
+            // label2
             // 
-            this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFinal.Location = new System.Drawing.Point(382, 94);
-            this.dtpFinal.Name = "dtpFinal";
-            this.dtpFinal.Size = new System.Drawing.Size(130, 26);
-            this.dtpFinal.TabIndex = 17;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Data Incial";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Selecione o vendedor";
             // 
             // frmConsultarVendasVendedores
             // 
@@ -156,6 +158,7 @@
             this.Name = "frmConsultarVendasVendedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Vendas Vendedores";
+            this.Load += new System.EventHandler(this.frmConsultarVendasVendedores_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).EndInit();
             this.groupBox1.ResumeLayout(false);

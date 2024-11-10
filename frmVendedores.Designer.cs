@@ -70,7 +70,7 @@
             this.groupBox1.Location = new System.Drawing.Point(15, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 295);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vendedores";
             // 
@@ -82,7 +82,7 @@
             this.chkStatus.Location = new System.Drawing.Point(478, 162);
             this.chkStatus.Name = "chkStatus";
             this.chkStatus.Size = new System.Drawing.Size(63, 24);
-            this.chkStatus.TabIndex = 5;
+            this.chkStatus.TabIndex = 9;
             this.chkStatus.Text = "Ativo";
             this.chkStatus.UseVisualStyleBackColor = true;
             // 
@@ -102,9 +102,10 @@
             this.btnExcluir.Location = new System.Drawing.Point(545, 216);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(153, 51);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 8;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -113,9 +114,10 @@
             this.btnAlterar.Location = new System.Drawing.Point(386, 216);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(153, 51);
-            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.TabIndex = 7;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -124,34 +126,36 @@
             this.btnCancelar.Location = new System.Drawing.Point(227, 216);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(153, 51);
-            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnCadastrar.BackColor = System.Drawing.Color.DarkGreen;
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
             this.btnCadastrar.Location = new System.Drawing.Point(68, 216);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(153, 51);
-            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.TabIndex = 5;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(206, 113);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(378, 26);
-            this.txtEndereco.TabIndex = 1;
+            this.txtEndereco.TabIndex = 3;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(206, 73);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(378, 26);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 2;
             // 
             // txtNomeVendedor
             // 
@@ -205,7 +209,7 @@
             this.groupBox2.Location = new System.Drawing.Point(15, 336);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(765, 303);
-            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtrar vendedor";
             // 
@@ -216,6 +220,7 @@
             this.grdVendedores.Name = "grdVendedores";
             this.grdVendedores.Size = new System.Drawing.Size(759, 227);
             this.grdVendedores.TabIndex = 0;
+            this.grdVendedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVendedores_CellClick);
             // 
             // label5
             // 
@@ -231,7 +236,7 @@
             this.Filtrar.Location = new System.Drawing.Point(227, 32);
             this.Filtrar.Name = "Filtrar";
             this.Filtrar.Size = new System.Drawing.Size(378, 26);
-            this.Filtrar.TabIndex = 1;
+            this.Filtrar.TabIndex = 10;
             // 
             // frmVendedores
             // 
@@ -246,6 +251,7 @@
             this.Name = "frmVendedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar vendedores";
+            this.Load += new System.EventHandler(this.frmVendedores_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

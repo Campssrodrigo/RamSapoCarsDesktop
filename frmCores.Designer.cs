@@ -56,7 +56,7 @@
             this.groupBox1.Location = new System.Drawing.Point(15, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 203);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gerenciar cores";
             // 
@@ -66,7 +66,7 @@
             this.chkOffLine.Location = new System.Drawing.Point(573, 25);
             this.chkOffLine.Name = "chkOffLine";
             this.chkOffLine.Size = new System.Drawing.Size(137, 24);
-            this.chkOffLine.TabIndex = 3;
+            this.chkOffLine.TabIndex = 2;
             this.chkOffLine.Text = "Gravar Off-Line";
             this.chkOffLine.UseVisualStyleBackColor = true;
             // 
@@ -77,9 +77,10 @@
             this.btnExcluir.Location = new System.Drawing.Point(543, 130);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(153, 51);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 6;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -88,9 +89,10 @@
             this.btnAlterar.Location = new System.Drawing.Point(384, 130);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(153, 51);
-            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.TabIndex = 5;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -99,13 +101,14 @@
             this.btnCancelar.Location = new System.Drawing.Point(225, 130);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(153, 51);
-            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnCadastrar.BackColor = System.Drawing.Color.DarkGreen;
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
             this.btnCadastrar.Location = new System.Drawing.Point(66, 130);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -113,6 +116,7 @@
             this.btnCadastrar.TabIndex = 3;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // txtCores
             // 
@@ -137,7 +141,7 @@
             this.groupBox2.Location = new System.Drawing.Point(15, 274);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(765, 365);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cores cadastradas";
             // 
@@ -149,6 +153,7 @@
             this.grdCores.Name = "grdCores";
             this.grdCores.Size = new System.Drawing.Size(759, 340);
             this.grdCores.TabIndex = 0;
+            this.grdCores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCores_CellClick);
             // 
             // frmCores
             // 
@@ -163,6 +168,7 @@
             this.Name = "frmCores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cores";
+            this.Load += new System.EventHandler(this.frmCores_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -67,7 +67,7 @@
             // 
             // btnAcessar
             // 
-            this.btnAcessar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAcessar.BackColor = System.Drawing.Color.DarkGreen;
             this.btnAcessar.ForeColor = System.Drawing.Color.White;
             this.btnAcessar.Location = new System.Drawing.Point(152, 194);
             this.btnAcessar.Name = "btnAcessar";

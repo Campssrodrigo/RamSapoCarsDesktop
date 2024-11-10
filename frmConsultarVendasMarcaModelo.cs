@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RamSapoCarsDesktop.Comum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,67 @@ namespace RamSapoCarsDesktop
         {
             InitializeComponent();
         }
+        #region Eventos
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            if (validarCampos())
+            {
+
+            }
+        }
+
+        private void frmConsultarVendasMarcaModelo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grdResultado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Métodos Privados
+
+        private bool validarCampos()
+        {
+            bool flag = true;
+            string campos = string.Empty;
+            DateTime DataInicial = Convert.ToDateTime(dtpInicial.Text);
+            DateTime DataFinal = Convert.ToDateTime(dtpFinal.Text);
+
+            if(cbMarca.SelectedIndex == -1)
+            {
+                flag = false;
+                campos = "\n -Marca";
+            }
+            if(cbModelo.SelectedIndex == -1)
+            {
+                flag = false;
+                campos += "\n -Modelo";
+            }
+            if (dtpInicial.Value.ToString() == string.Empty)
+            {
+                flag = false;
+                campos += "\n -Data Inicial";
+            }
+            else if (DataInicial > DataFinal)
+            {
+                flag = false;
+                campos += "\n -Data Inicial maior que Data Final";
+            }
+            if(dtpFinal.Value.ToString() == string.Empty)
+            {
+                flag = false;
+                campos += "\n -Data Final";
+            }
+
+            if (!flag)
+            {
+                Util.MostarMensagem(Util.TipoMensagem.Obrigatorio, campos);
+            }
+            return flag;
+        }
+        #endregion
     }
 }

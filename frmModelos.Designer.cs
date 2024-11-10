@@ -58,7 +58,7 @@
             this.groupBox1.Location = new System.Drawing.Point(15, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 232);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gerenciar Modelos";
             // 
@@ -69,7 +69,7 @@
             this.cbMarca.Location = new System.Drawing.Point(200, 88);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(378, 28);
-            this.cbMarca.TabIndex = 4;
+            this.cbMarca.TabIndex = 2;
             // 
             // btnExcluir
             // 
@@ -78,7 +78,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(538, 151);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(153, 51);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 6;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -90,7 +90,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(379, 151);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(153, 51);
-            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.TabIndex = 5;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -102,14 +102,14 @@
             this.btnCancelar.Location = new System.Drawing.Point(220, 151);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(153, 51);
-            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnCadastrar.BackColor = System.Drawing.Color.DarkGreen;
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
             this.btnCadastrar.Location = new System.Drawing.Point(61, 151);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -151,7 +151,7 @@
             this.groupBox2.Location = new System.Drawing.Point(15, 285);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(765, 354);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modelos cadastrados";
             // 

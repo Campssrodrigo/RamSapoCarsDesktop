@@ -69,25 +69,26 @@
             this.cadastrosBásicosToolStripMenuItem.Name = "cadastrosBásicosToolStripMenuItem";
             this.cadastrosBásicosToolStripMenuItem.Size = new System.Drawing.Size(146, 25);
             this.cadastrosBásicosToolStripMenuItem.Text = "Cadastros básicos";
+            this.cadastrosBásicosToolStripMenuItem.Click += new System.EventHandler(this.cadastrosBásicosToolStripMenuItem_Click);
             // 
             // coresToolStripMenuItem
             // 
             this.coresToolStripMenuItem.Name = "coresToolStripMenuItem";
-            this.coresToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
+            this.coresToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.coresToolStripMenuItem.Text = "Cores";
             this.coresToolStripMenuItem.Click += new System.EventHandler(this.coresToolStripMenuItem_Click);
             // 
             // marcasToolStripMenuItem
             // 
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
+            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.marcasToolStripMenuItem.Text = "Marcas";
             this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
             // 
             // modelosToolStripMenuItem
             // 
             this.modelosToolStripMenuItem.Name = "modelosToolStripMenuItem";
-            this.modelosToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
+            this.modelosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.modelosToolStripMenuItem.Text = "Modelos";
             this.modelosToolStripMenuItem.Click += new System.EventHandler(this.modelosToolStripMenuItem_Click);
             // 

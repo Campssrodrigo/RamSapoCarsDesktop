@@ -21,7 +21,7 @@ namespace RamSapoCarsDesktop
         #region Eventos
         private void btnAcessar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            if (validarCampos())
             {
 
             }
@@ -29,7 +29,7 @@ namespace RamSapoCarsDesktop
         #endregion
 
         #region Métodos
-        private bool ValidarCampos()
+        private bool validarCampos()
         {
             bool flag = true;
             string campos = string.Empty;

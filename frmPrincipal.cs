@@ -62,5 +62,10 @@ namespace RamSapoCarsDesktop
         {
             Application.Exit();
         }
+
+        private void cadastrosBásicosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

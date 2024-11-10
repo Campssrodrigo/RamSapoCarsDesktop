@@ -42,8 +42,8 @@ namespace RamSapoCarsDesktop.Comum
                     btnAlterar.Enabled = true;
 
                     btnCadastrar.BackColor = Color.DarkGreen;
-                    btnAlterar.BackColor = Color.Gray;
-                    btnExcluir.BackColor = Color.Gray;
+                    btnAlterar.BackColor = Color.Blue;
+                    btnExcluir.BackColor = Color.Red;
                     break;
             }
         }
