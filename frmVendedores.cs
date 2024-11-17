@@ -29,6 +29,7 @@ namespace RamSapoCarsDesktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
+            Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -50,6 +51,10 @@ namespace RamSapoCarsDesktop
         {
 
         }
+        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region Métodos privados
@@ -61,6 +66,7 @@ namespace RamSapoCarsDesktop
             txtNomeVendedor.Clear();
             txtTelefone.Clear();
             txtNomeVendedor.Focus();
+            
         }
         private bool validarCampos()
         {
@@ -95,5 +101,7 @@ namespace RamSapoCarsDesktop
             return flag;
         }
         #endregion
+
+        
     }
 }

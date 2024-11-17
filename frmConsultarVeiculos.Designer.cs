@@ -85,6 +85,7 @@
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(288, 28);
             this.cbMarca.TabIndex = 1;
+            this.cbMarca.SelectedIndexChanged += new System.EventHandler(this.cbMarca_SelectedIndexChanged);
             // 
             // label2
             // 

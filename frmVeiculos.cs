@@ -30,6 +30,7 @@ namespace RamSapoCarsDesktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
+            Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace RamSapoCarsDesktop
 
         private void frmVeiculos_Load(object sender, EventArgs e)
         {
-
+            Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
         }
         #endregion
 
@@ -150,8 +151,6 @@ namespace RamSapoCarsDesktop
             cbSituacao.SelectedIndex = -1;
             cbMarca.Focus();
         }
-
-
         #endregion
 
 

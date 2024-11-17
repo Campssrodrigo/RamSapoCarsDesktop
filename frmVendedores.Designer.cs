@@ -45,7 +45,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdVendedores = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.Filtrar = new System.Windows.Forms.TextBox();
+            this.txtNomePesquisa = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdVendedores)).BeginInit();
@@ -204,7 +204,7 @@
             // 
             this.groupBox2.Controls.Add(this.grdVendedores);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.Filtrar);
+            this.groupBox2.Controls.Add(this.txtNomePesquisa);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(15, 336);
             this.groupBox2.Name = "groupBox2";
@@ -231,12 +231,13 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Pesquisar pelo nome";
             // 
-            // Filtrar
+            // txtNomePesquisa
             // 
-            this.Filtrar.Location = new System.Drawing.Point(227, 32);
-            this.Filtrar.Name = "Filtrar";
-            this.Filtrar.Size = new System.Drawing.Size(378, 26);
-            this.Filtrar.TabIndex = 10;
+            this.txtNomePesquisa.Location = new System.Drawing.Point(227, 32);
+            this.txtNomePesquisa.Name = "txtNomePesquisa";
+            this.txtNomePesquisa.Size = new System.Drawing.Size(378, 26);
+            this.txtNomePesquisa.TabIndex = 10;
+            this.txtNomePesquisa.TextChanged += new System.EventHandler(this.txtNomePesquisa_TextChanged);
             // 
             // frmVendedores
             // 
@@ -280,6 +281,6 @@
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.CheckBox chkStatus;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Filtrar;
+        private System.Windows.Forms.TextBox txtNomePesquisa;
     }
 }

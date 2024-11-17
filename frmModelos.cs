@@ -29,6 +29,7 @@ namespace RamSapoCarsDesktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimparCampos();
+            Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)

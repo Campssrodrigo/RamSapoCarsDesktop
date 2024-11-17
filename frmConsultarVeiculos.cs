@@ -34,6 +34,10 @@ namespace RamSapoCarsDesktop
         {
 
         }
+        private void cbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
 
@@ -43,15 +47,10 @@ namespace RamSapoCarsDesktop
             bool flag = true;
             string campos = string.Empty;
 
-            if(cbMarca.SelectedIndex == -1)
+            if(cbMarca.SelectedIndex == -1 && cbModelo.SelectedIndex == -1)
             {
                 flag = false;
-                campos = "\n -Marca";
-            }
-            if(cbModelo.SelectedIndex == -1)
-            {
-                flag = false;
-                campos += "\n -Modelo";
+                campos = "\n -Ao menos um dos filtros devem estar selecionados.";
             }
 
             if (!flag)
@@ -62,6 +61,7 @@ namespace RamSapoCarsDesktop
             return flag;
         }
         #endregion
+
 
     }
 }

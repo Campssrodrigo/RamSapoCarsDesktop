@@ -59,7 +59,7 @@ namespace RamSapoCarsDesktop
             else if (dataInicial > dataFinal)
             {
                 flag = false;
-                campos += "\n -Data Inicial maior que Data Final";
+                campos += "\n -As datas estão com a ordem cronológica incorreta.";
             }
             
             if(dtpFinal.Value.ToString() == string.Empty)
