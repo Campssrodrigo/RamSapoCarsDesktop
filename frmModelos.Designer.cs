@@ -122,6 +122,7 @@
             // txtNomeModelo
             // 
             this.txtNomeModelo.Location = new System.Drawing.Point(200, 43);
+            this.txtNomeModelo.MaxLength = 50;
             this.txtNomeModelo.Name = "txtNomeModelo";
             this.txtNomeModelo.Size = new System.Drawing.Size(378, 26);
             this.txtNomeModelo.TabIndex = 1;

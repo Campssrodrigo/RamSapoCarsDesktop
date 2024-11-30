@@ -146,6 +146,7 @@
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(206, 113);
+            this.txtEndereco.MaxLength = 100;
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(378, 26);
             this.txtEndereco.TabIndex = 3;
@@ -153,6 +154,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(206, 73);
+            this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(378, 26);
             this.txtEmail.TabIndex = 2;
@@ -160,6 +162,7 @@
             // txtNomeVendedor
             // 
             this.txtNomeVendedor.Location = new System.Drawing.Point(206, 34);
+            this.txtNomeVendedor.MaxLength = 50;
             this.txtNomeVendedor.Name = "txtNomeVendedor";
             this.txtNomeVendedor.Size = new System.Drawing.Size(378, 26);
             this.txtNomeVendedor.TabIndex = 1;

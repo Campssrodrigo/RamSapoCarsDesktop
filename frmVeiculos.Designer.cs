@@ -177,7 +177,7 @@
             // txtKm
             // 
             this.txtKm.Location = new System.Drawing.Point(113, 267);
-            this.txtKm.Mask = "000000";
+            this.txtKm.Mask = "0000000000";
             this.txtKm.Name = "txtKm";
             this.txtKm.Size = new System.Drawing.Size(110, 26);
             this.txtKm.TabIndex = 9;
@@ -193,6 +193,7 @@
             // txtValorVenda
             // 
             this.txtValorVenda.Location = new System.Drawing.Point(484, 325);
+            this.txtValorVenda.MaxLength = 10;
             this.txtValorVenda.Name = "txtValorVenda";
             this.txtValorVenda.Size = new System.Drawing.Size(110, 26);
             this.txtValorVenda.TabIndex = 12;
@@ -200,6 +201,7 @@
             // txtPlaca
             // 
             this.txtPlaca.Location = new System.Drawing.Point(484, 98);
+            this.txtPlaca.MaxLength = 8;
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(110, 26);
             this.txtPlaca.TabIndex = 4;
@@ -207,6 +209,7 @@
             // txtObs
             // 
             this.txtObs.Location = new System.Drawing.Point(113, 467);
+            this.txtObs.MaxLength = 200;
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
             this.txtObs.Size = new System.Drawing.Size(619, 97);
@@ -215,6 +218,7 @@
             // txtValorCompra
             // 
             this.txtValorCompra.Location = new System.Drawing.Point(113, 325);
+            this.txtValorCompra.MaxLength = 10;
             this.txtValorCompra.Name = "txtValorCompra";
             this.txtValorCompra.Size = new System.Drawing.Size(110, 26);
             this.txtValorCompra.TabIndex = 11;
@@ -222,6 +226,7 @@
             // txtMotor
             // 
             this.txtMotor.Location = new System.Drawing.Point(113, 157);
+            this.txtMotor.MaxLength = 20;
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.Size = new System.Drawing.Size(110, 26);
             this.txtMotor.TabIndex = 5;

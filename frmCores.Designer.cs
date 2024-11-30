@@ -121,6 +121,7 @@
             // txtCores
             // 
             this.txtCores.Location = new System.Drawing.Point(201, 74);
+            this.txtCores.MaxLength = 20;
             this.txtCores.Name = "txtCores";
             this.txtCores.Size = new System.Drawing.Size(391, 26);
             this.txtCores.TabIndex = 1;

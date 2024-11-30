@@ -80,6 +80,7 @@
             // txtSenha
             // 
             this.txtSenha.Location = new System.Drawing.Point(132, 117);
+            this.txtSenha.MaxLength = 12;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(215, 26);
             this.txtSenha.TabIndex = 2;
@@ -88,6 +89,7 @@
             // txtLogin
             // 
             this.txtLogin.Location = new System.Drawing.Point(132, 71);
+            this.txtLogin.MaxLength = 50;
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(215, 26);
             this.txtLogin.TabIndex = 1;
