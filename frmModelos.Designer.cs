@@ -66,7 +66,7 @@
             // 
             this.cbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMarca.FormattingEnabled = true;
-            this.cbMarca.Location = new System.Drawing.Point(200, 88);
+            this.cbMarca.Location = new System.Drawing.Point(213, 35);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(378, 28);
             this.cbMarca.TabIndex = 2;
@@ -121,7 +121,7 @@
             // 
             // txtNomeModelo
             // 
-            this.txtNomeModelo.Location = new System.Drawing.Point(200, 43);
+            this.txtNomeModelo.Location = new System.Drawing.Point(213, 79);
             this.txtNomeModelo.MaxLength = 50;
             this.txtNomeModelo.Name = "txtNomeModelo";
             this.txtNomeModelo.Size = new System.Drawing.Size(378, 26);
@@ -130,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 91);
+            this.label2.Location = new System.Drawing.Point(74, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 20);
             this.label2.TabIndex = 0;
@@ -139,7 +139,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 46);
+            this.label1.Location = new System.Drawing.Point(85, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 0;

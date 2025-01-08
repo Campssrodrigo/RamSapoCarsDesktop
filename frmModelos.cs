@@ -1,4 +1,5 @@
-﻿using RamSapoCarsDesktop.Comum;
+﻿using DAO;
+using RamSapoCarsDesktop.Comum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,21 @@ namespace RamSapoCarsDesktop
         {
             if (validarCampos())
             {
+                if (validarCampos())
+                {
+                    try
+                    {
+                        Cadastrar();
+                        LimparCampos();
+                      //Consultar
+                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                    }
+                    catch
+                    {
+                        Util.MostarMensagem(Util.TipoMensagem.Erro);
+                    }
 
+                }
             }
         }
 
@@ -45,6 +60,8 @@ namespace RamSapoCarsDesktop
         private void frmModelos_Load(object sender, EventArgs e)
         {
             Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+            CarregarMarcas();
+            LimparCampos();
         }
 
         private void grdModelos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -54,6 +71,22 @@ namespace RamSapoCarsDesktop
         #endregion
 
         #region Métodos
+        private void Cadastrar()
+        {
+            new ModeloDAO().CadastrarModelo(new tb_modelo
+            {
+                id_garagem = Util.CodigoGaragemLogada,
+                id_marca = (int)cbMarca.SelectedValue,
+                nome_modelo = txtNomeModelo.Text
+            });
+        }
+        private void CarregarMarcas()
+        {
+            List<tb_marca> lstMarcas = new MarcaDAO().ConsultarMarcas(Util.CodigoGaragemLogada);
+            cbMarca.DisplayMember = "nome_marca";
+            cbMarca.ValueMember = "id_marca";
+            cbMarca.DataSource = lstMarcas;
+        }
 
         private void LimparCampos()
         {

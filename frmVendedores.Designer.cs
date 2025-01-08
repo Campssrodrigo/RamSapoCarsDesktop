@@ -158,6 +158,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(378, 26);
             this.txtEmail.TabIndex = 2;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtNomeVendedor
             // 
