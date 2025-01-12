@@ -1,5 +1,6 @@
 ﻿using DAO;
 using RamSapoCarsDesktop.Comum;
+using RamSapoCarsDesktop.VO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace RamSapoCarsDesktop
         {
             InitializeComponent();
         }
+
         #region Variáveis Globais
         int idModelo = 0;
         #endregion
@@ -25,55 +27,91 @@ namespace RamSapoCarsDesktop
         #region Eventos
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-                if (validarCampos())
+            if (validarCampos())
+            {
+                try
                 {
-                    try
-                    {
-                        Cadastrar();
-                        LimparCampos();
-                      //Consultar
-                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
-                    }
-                    catch
-                    {
-                        Util.MostarMensagem(Util.TipoMensagem.Erro);
-                    }
+                    Cadastrar();
+                    limparCampos();
+                    Consultar();
+                    Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
                 }
+                catch
+                {
+                    Util.MostarMensagem(Util.TipoMensagem.Erro);
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            LimparCampos();
+            limparCampos();
             Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-
+            if (validarCampos())
+            {
+                try
+                {
+                    Alterar();
+                    limparCampos();
+                    Consultar();
+                    Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                }
+                catch
+                {
+                    Util.MostarMensagem(Util.TipoMensagem.Erro);
+                }
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            if (Util.MostarMensagem(Util.TipoMensagem.Confirmacao, $"\n{txtNomeModelo.Text}"))
+            {
+                try
+                {
+                    Excluir();
+                    limparCampos();
+                    Consultar();
+                    Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                }
+                catch
+                {
+                    Util.MostarMensagem(Util.TipoMensagem.Erro);
+                }
 
+            }
         }
 
         private void frmModelos_Load(object sender, EventArgs e)
         {
             Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+            Util.ConfigurarGrid(grdModelos);
             CarregarMarcas();
-            LimparCampos();
+            Consultar();
+            limparCampos();
         }
 
         private void grdModelos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (grdModelos.RowCount > 0)
+            {
+                ModeloVO objLinhaClickada = (ModeloVO)grdModelos.CurrentRow.DataBoundItem;
+                txtNomeModelo.Text = objLinhaClickada.ObjEdicao.nome_modelo;
+                cbMarca.SelectedValue = objLinhaClickada.ObjEdicao.id_marca;
+                idModelo = objLinhaClickada.ObjEdicao.id_modelo;
+                Util.configurarBotoesTela(Util.EstadoTela.Edicao, btnCadastrar, btnAlterar, btnExcluir);
+            }
         }
         #endregion
 
         #region Métodos
         private void Cadastrar()
         {
-            new ModeloDAO().CadastrarModelo(new tb_modelo
+            new ModeloDAO().Cadastrar(new tb_modelo
             {
                 id_garagem = Util.CodigoGaragemLogada,
                 id_marca = (int)cbMarca.SelectedValue,
@@ -83,15 +121,24 @@ namespace RamSapoCarsDesktop
         }
         private void Alterar()
         {
-
+            new ModeloDAO().Alterar(new tb_modelo
+            {
+                id_modelo = idModelo,
+                id_marca = (int)cbMarca.SelectedValue,
+                nome_modelo = txtNomeModelo.Text,
+            });
+            Util.MostarMensagem(Util.TipoMensagem.Sucesso);
         }
         private void Excluir()
         {
-
+            new ModeloDAO().Excluir(idModelo);
+            
+            Util.MostarMensagem(Util.TipoMensagem.Sucesso);
         }
         private void Consultar()
         {
-
+            grdModelos.DataSource = new ModeloDAO().Consultar(Util.CodigoGaragemLogada);
+            grdModelos.Columns["ObjEdicao"].Visible = false;
         }
         private void CarregarMarcas()
         {
@@ -101,7 +148,7 @@ namespace RamSapoCarsDesktop
             cbMarca.DataSource = lstMarcas;
         }
 
-        private void LimparCampos()
+        private void limparCampos()
         {
             idModelo = 0;
             txtNomeModelo.Clear();

@@ -146,7 +146,7 @@ namespace RamSapoCarsDesktop
             => new VendedorDAO().VerificarEmailExistente(txtEmail.Text, idVendedor);
         private void Cadastrar()
         {
-            new VendedorDAO().CadastrarVendedor(new tb_vendedor
+            new VendedorDAO().Cadastrar(new tb_vendedor
             {
                 email_vendedor = txtEmail.Text,
                 endereco_vendedor = txtEndereco.Text,
@@ -160,7 +160,7 @@ namespace RamSapoCarsDesktop
         } 
         private void Alterar()
         {
-            new VendedorDAO().AlterarVendedor(new tb_vendedor
+            new VendedorDAO().Alterar(new tb_vendedor
             {
                 email_vendedor = txtEmail.Text,
                 endereco_vendedor = txtEndereco.Text,
@@ -173,7 +173,7 @@ namespace RamSapoCarsDesktop
         }
         private void Excluir()
         {
-            new VendedorDAO().ExcluirVendedor(idVendedor);
+            new VendedorDAO().Excluir(idVendedor);
             Util.MostarMensagem(Util.TipoMensagem.Sucesso);
         }
         private void Filtrar()
