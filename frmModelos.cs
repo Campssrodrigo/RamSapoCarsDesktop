@@ -18,11 +18,13 @@ namespace RamSapoCarsDesktop
         {
             InitializeComponent();
         }
+        #region Variáveis Globais
+        int idModelo = 0;
+        #endregion
+
         #region Eventos
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (validarCampos())
-            {
                 if (validarCampos())
                 {
                     try
@@ -36,9 +38,7 @@ namespace RamSapoCarsDesktop
                     {
                         Util.MostarMensagem(Util.TipoMensagem.Erro);
                     }
-
                 }
-            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -79,6 +79,19 @@ namespace RamSapoCarsDesktop
                 id_marca = (int)cbMarca.SelectedValue,
                 nome_modelo = txtNomeModelo.Text
             });
+            Util.MostarMensagem(Util.TipoMensagem.Sucesso);
+        }
+        private void Alterar()
+        {
+
+        }
+        private void Excluir()
+        {
+
+        }
+        private void Consultar()
+        {
+
         }
         private void CarregarMarcas()
         {
@@ -90,6 +103,7 @@ namespace RamSapoCarsDesktop
 
         private void LimparCampos()
         {
+            idModelo = 0;
             txtNomeModelo.Clear();
             cbMarca.SelectedIndex = -1;
             txtNomeModelo.Focus();

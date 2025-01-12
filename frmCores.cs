@@ -179,6 +179,7 @@ namespace RamSapoCarsDesktop
         }
         private void limparCampos()
         {
+            idCor = 0;
             txtCores.Clear();
             chkOffLine.Checked = false;
             txtCores.Focus();

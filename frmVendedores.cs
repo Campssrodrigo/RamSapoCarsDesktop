@@ -22,7 +22,10 @@ namespace RamSapoCarsDesktop
             InitializeComponent();
         }
 
+        #region Variáveis Globais
         int idVendedor = 0;
+        #endregion
+
         #region Eventos
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -49,14 +52,12 @@ namespace RamSapoCarsDesktop
                 
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limparCampos();
             Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
             Util.ConfigurarGrid(grdVendedores);
         }
-
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (validarCampos())
@@ -83,18 +84,29 @@ namespace RamSapoCarsDesktop
 
             }
         }
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (Util.MostarMensagem(Util.TipoMensagem.Confirmacao, $"\n{txtNomeVendedor.Text}"))
+            {
+                    try
+                    {
+                        Excluir();
+                        limparCampos();
+                        Filtrar();
+                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                    }
+                    catch
+                    {
+                        Util.MostarMensagem(Util.TipoMensagem.Erro);
+                    }
+            }
         }
-
         private void frmVendedores_Load(object sender, EventArgs e)
         {
+            Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+            Util.ConfigurarGrid(grdVendedores);
             Filtrar();
-
         }
-
         private void grdVendedores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (grdVendedores.RowCount > 0)
@@ -104,21 +116,15 @@ namespace RamSapoCarsDesktop
 
                 //Popula os campos pra editar ou excluir
                 txtNomeVendedor.Text = objVendedorClicado.nome_vendedor;
+                idVendedor = objVendedorClicado.id_vendedor;
                 txtEmail.Text = objVendedorClicado.email_vendedor;
-                txtEndereco.Text = objVendedorClicado.endereco_vendedor;
                 txtTelefone.Text = objVendedorClicado.tel_vendedor;
                 chkStatus.Checked = objVendedorClicado.status_vendedor;
-
-                idVendedor = objVendedorClicado.id_vendedor;
+                txtEndereco.Text = objVendedorClicado.endereco_vendedor;
 
                 Util.configurarBotoesTela(Util.EstadoTela.Edicao, btnCadastrar, btnAlterar, btnExcluir);
             }
         }
-        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtEmail_Leave(object sender, EventArgs e)
         {
             if (!Util.VerficarEmail(txtEmail.Text))
@@ -128,13 +134,16 @@ namespace RamSapoCarsDesktop
                 txtEmail.Focus();
             }
         }
+        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
 
         #endregion
 
         #region Métodos privados 
-
-        private bool VerificarEmailExistente() => new VendedorDAO().VerificarEmailExistente(txtEmail.Text);
-
+        private bool VerificarEmailExistente() 
+            => new VendedorDAO().VerificarEmailExistente(txtEmail.Text, idVendedor);
         private void Cadastrar()
         {
             new VendedorDAO().CadastrarVendedor(new tb_vendedor
@@ -187,9 +196,9 @@ namespace RamSapoCarsDesktop
             grdVendedores.Columns["status_vendedor"].HeaderText = "Status";
 
         }
-   
         private void limparCampos()
         {
+            idVendedor = 0;
             txtEmail.Clear();
             txtEndereco.Clear();
             txtNomeVendedor.Clear();
@@ -229,7 +238,6 @@ namespace RamSapoCarsDesktop
             }
             return flag;
         }
-
 
         #endregion
 

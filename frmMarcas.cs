@@ -18,8 +18,10 @@ namespace RamSapoCarsDesktop
         {
             InitializeComponent();
         }
-
+        #region Variáveis Globais
         int idMarca = 0;
+        #endregion
+
         #region Eventos
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -154,6 +156,7 @@ namespace RamSapoCarsDesktop
         }
         private void limparCampos()
         {
+            idMarca = 0;
             txtMarca.Clear();
             txtMarca.Focus();
         }
