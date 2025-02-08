@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAO;
+using System.Xml;
+using System.IO;
 
 namespace RamSapoCarsDesktop
 {
@@ -21,8 +23,9 @@ namespace RamSapoCarsDesktop
         {
             InitializeComponent();
         }
+        #region Variáveis Globais
         int idCor = 0;
-
+        #endregion
         #region Eventos
 
 
@@ -30,17 +33,27 @@ namespace RamSapoCarsDesktop
         {
             if (validarCampos())
             {
-                try
+                if(chkOffLine.Checked == false)
                 {
-                    Cadastrar();
+                    try
+                    {
+                        Cadastrar();
+                        limparCampos();
+                        Consultar();
+                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                    }
+                    catch
+                    {
+                        Util.MostarMensagem(Util.TipoMensagem.Erro);
+                    }
+                }
+                else
+                {
+                    GerarArquivoXML();
                     limparCampos();
-                    Consultar();
                     Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
                 }
-                catch
-                {
-                    Util.MostarMensagem(Util.TipoMensagem.Erro);
-                }
+                
             }
 
         }
@@ -202,6 +215,34 @@ namespace RamSapoCarsDesktop
             }
 
             return flag;
+        }
+
+        private void GerarArquivoXML()
+        {
+            XmlDocument xml = new XmlDocument();
+
+            if (!File.Exists(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Cores)))
+            {
+                XmlElement noCor = xml.CreateElement("cor");
+                xml.AppendChild(noCor);
+            }
+            else
+            {
+                xml.Load(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Cores));
+            }
+
+            XmlElement noItem = xml.CreateElement("item");
+
+            XmlElement noCores = xml.CreateElement("nome");
+            noCores.InnerText = txtCores.Text.Trim();
+            noItem.AppendChild(noCores);
+
+            XmlNode xmlPai = xml.SelectSingleNode("cor");
+            xmlPai.AppendChild(noItem);
+
+            xml.Save(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Cores));
+
+            Util.MostarMensagem(Util.TipoMensagem.Sucesso);
         }
         #endregion
 

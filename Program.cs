@@ -16,6 +16,10 @@ namespace RamSapoCarsDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            frmLogin login = new frmLogin();
+
+            if(login.ShowDialog() == DialogResult.OK)
             Application.Run(new frmPrincipal());
         }
     }

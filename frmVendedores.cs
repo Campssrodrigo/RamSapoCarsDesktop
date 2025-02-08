@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace RamSapoCarsDesktop
 {
@@ -29,28 +31,38 @@ namespace RamSapoCarsDesktop
         #region Eventos
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (validarCampos())
+            if (chkOffLine.Checked)
             {
-                if (!VerificarEmailExistente())
-                {
-                    Util.MostarMensagem(Util.TipoMensagem.EmailDuplicado);
-                }
-                else
-                {
-                    try
-                    {
-                        Cadastrar();
-                        limparCampos();
-                        Filtrar();
-                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
-                    }
-                    catch
-                    {
-                        Util.MostarMensagem(Util.TipoMensagem.Erro);
-                    }
-                }
-                
+                GerarArquivoXML();
+                limparCampos();
+                Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
             }
+            else 
+            {
+                if (validarCampos())
+                {
+                    if (!VerificarEmailExistente())
+                    {
+                        Util.MostarMensagem(Util.TipoMensagem.EmailDuplicado);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Cadastrar();
+                            limparCampos();
+                            Filtrar();
+                            Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                        }
+                        catch
+                        {
+                            Util.MostarMensagem(Util.TipoMensagem.Erro);
+                        }
+                    }
+
+                }
+            }
+           
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -62,43 +74,42 @@ namespace RamSapoCarsDesktop
         {
             if (validarCampos())
             {
-                if (!VerificarEmailExistente())
-                {
-                    Util.MostarMensagem(Util.TipoMensagem.EmailDuplicado);
-                }
-                else
-                {
-
-                    try
+                    if (!VerificarEmailExistente())
                     {
-                        Alterar();
-                        limparCampos();
-                        Filtrar();
-                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                        Util.MostarMensagem(Util.TipoMensagem.EmailDuplicado);
                     }
-                    catch
+                    else
                     {
-                        Util.MostarMensagem(Util.TipoMensagem.Erro);
-                    }
-                }
 
+                        try
+                        {
+                            Alterar();
+                            limparCampos();
+                            Filtrar();
+                            Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                        }
+                        catch
+                        {
+                            Util.MostarMensagem(Util.TipoMensagem.Erro);
+                        }
+                    }
             }
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (Util.MostarMensagem(Util.TipoMensagem.Confirmacao, $"\n{txtNomeVendedor.Text}"))
             {
-                    try
-                    {
-                        Excluir();
-                        limparCampos();
-                        Filtrar();
-                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
-                    }
-                    catch
-                    {
-                        Util.MostarMensagem(Util.TipoMensagem.Erro);
-                    }
+                try
+                {
+                    Excluir();
+                    limparCampos();
+                    Filtrar();
+                    Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                }
+                catch
+                {
+                    Util.MostarMensagem(Util.TipoMensagem.Erro);
+                }
             }
         }
         private void frmVendedores_Load(object sender, EventArgs e)
@@ -142,7 +153,7 @@ namespace RamSapoCarsDesktop
         #endregion
 
         #region Métodos privados 
-        private bool VerificarEmailExistente() 
+        private bool VerificarEmailExistente()
             => new VendedorDAO().VerificarEmailExistente(txtEmail.Text, idVendedor);
         private void Cadastrar()
         {
@@ -157,7 +168,7 @@ namespace RamSapoCarsDesktop
                 tel_vendedor = txtTelefone.Text
             });
             Util.MostarMensagem(Util.TipoMensagem.Sucesso);
-        } 
+        }
         private void Alterar()
         {
             new VendedorDAO().Alterar(new tb_vendedor
@@ -181,14 +192,14 @@ namespace RamSapoCarsDesktop
             grdVendedores.DataSource = new VendedorDAO().Filtrar(txtNomePesquisa.Text, Util.CodigoGaragemLogada);
             //Ocultar
             grdVendedores.Columns["id_vendedor"].Visible = false;
-            
+
             grdVendedores.Columns["senha_vendedor"].Visible = false;
             grdVendedores.Columns["id_garagem"].Visible = false;
             grdVendedores.Columns["tb_cliente"].Visible = false;
             grdVendedores.Columns["tb_garagem"].Visible = false;
             grdVendedores.Columns["tb_venda"].Visible = false;
 
-           
+
             grdVendedores.Columns["nome_vendedor"].HeaderText = "Vendedor";
             grdVendedores.Columns["email_vendedor"].HeaderText = "E-Mail";
             grdVendedores.Columns["endereco_vendedor"].HeaderText = "Endereço";
@@ -204,19 +215,19 @@ namespace RamSapoCarsDesktop
             txtNomeVendedor.Clear();
             txtTelefone.Clear();
             txtNomeVendedor.Focus();
-            
+
         }
         private bool validarCampos()
         {
             bool flag = true;
             string campos = string.Empty;
 
-            if(txtEmail.Text.Trim() == string.Empty)
+            if (txtEmail.Text.Trim() == string.Empty)
             {
                 flag = false;
                 campos = "\n -Email";
             }
-            if(txtEndereco.Text.Trim() == string.Empty)
+            if (txtEndereco.Text.Trim() == string.Empty)
             {
                 flag = false;
                 campos += "\n -Endereço";
@@ -226,7 +237,7 @@ namespace RamSapoCarsDesktop
                 flag = false;
                 campos += "\n -Nome";
             }
-            if(txtTelefone.Text.Trim() == string.Empty)
+            if (txtTelefone.Text.Trim() == string.Empty)
             {
                 flag = false;
                 campos += "\n -Telefone";
@@ -239,8 +250,56 @@ namespace RamSapoCarsDesktop
             return flag;
         }
 
+        private void GerarArquivoXML()
+        {
+            XmlDocument xml = new XmlDocument();
+
+            if (!File.Exists(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Vendedor)))
+            {
+                XmlElement noVendedor = xml.CreateElement("vendedor");
+                xml.AppendChild(noVendedor);
+            }
+            else
+            {
+                xml.Load(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Vendedor));
+            }
+
+            XmlElement noItem = xml.CreateElement("item");
+
+            XmlElement noNome = xml.CreateElement("nome");
+            noNome.InnerText = txtNomeVendedor.Text.Trim();
+            noItem.AppendChild(noNome);
+
+            XmlElement noEmail = xml.CreateElement("email");
+            noEmail.InnerText = txtEmail.Text.Trim();
+            noItem.AppendChild(noEmail);
+
+            XmlElement noEndereco = xml.CreateElement("endereco");
+            noEndereco.InnerText = txtEmail.Text.Trim();
+            noItem.AppendChild(noEndereco);
+
+            XmlElement noTelefone = xml.CreateElement("telefone");
+            noTelefone.InnerText = txtTelefone.Text.Trim();
+            noItem.AppendChild(noTelefone);
+
+            XmlElement noStatus = xml.CreateElement("status");
+            noStatus.InnerText = chkStatus.Checked.ToString();
+            noItem.AppendChild(noStatus);
+
+            XmlElement noSenha = xml.CreateElement("senha");
+            noSenha.InnerText = Util.CriarSenha(txtEmail.Text);
+            noItem.AppendChild(noSenha);
+
+            XmlNode xmlPai = xml.SelectSingleNode("vendedor");
+            xmlPai.AppendChild(noItem);
+
+            xml.Save(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Vendedor));
+
+            Util.MostarMensagem(Util.TipoMensagem.Sucesso);
+        }
+
         #endregion
 
-        
+
     }
 }

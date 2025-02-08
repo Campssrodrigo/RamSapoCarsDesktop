@@ -10,12 +10,21 @@ namespace RamSapoCarsDesktop.Comum
 {
     public static class Util
     {
-        public const int CodigoGaragemLogada = 1;
+        public static int CodigoGaragemLogada;
 
         public enum EstadoTela
         {
             Nova,
             Edicao
+        }
+
+        public enum TelaCarregaOff
+        {
+            Cores,
+            Vendedor,
+            Marca,
+            Modelo,
+            Veiculo
         }
         public enum TipoMensagem
         {
@@ -24,7 +33,10 @@ namespace RamSapoCarsDesktop.Comum
             Obrigatorio,
             Confirmacao,
             EmailDuplicado,
-            EmailIncorreto
+            EmailIncorreto,
+            RegistroNaoEncontrado,
+            UsuarioNaoEncontrado,
+            AcaoNaoAutorizada
         }
 
         public static string CriarSenha(string palavra) 
@@ -97,6 +109,16 @@ namespace RamSapoCarsDesktop.Comum
                 case TipoMensagem.EmailIncorreto:
                     MessageBox.Show(Mensagens.MSG_EMAIL_INVALIDO, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
+                case TipoMensagem.RegistroNaoEncontrado:
+                    MessageBox.Show(Mensagens.MSG_NAO_ENCONTRADO, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break; 
+                case TipoMensagem.UsuarioNaoEncontrado:
+                    MessageBox.Show(Mensagens.MSG_USUARIO_NAO_ENCONTRADO, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+
+                case TipoMensagem.AcaoNaoAutorizada:
+                    MessageBox.Show(Mensagens.MSG_ACAO_NAO_AUTORIZADA, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
             }
 
             return flag;
@@ -114,5 +136,46 @@ namespace RamSapoCarsDesktop.Comum
                 return false;
             }
         }
+        public static void ConfigurarCombo(ComboBox combo, string display, string value)
+        {
+            combo.DisplayMember = display;
+            combo.ValueMember = value;
+        }
+
+        //public static string RetornarCaminhoArquivo(string pasta, string nomeArquivo)
+        //  => $"C:\\ProjetoCars\\" + pasta + "\\" + nomeArquivo;
+
+       
+        private const string pathFileXML = "C:\\ProjetoCars\\ArquivoXML\\";
+        private const string fileCor = "CadastroDeCores.xml";
+        private const string fileVendedor = "CadastroVendedores.xml";
+        private const string fileMarca = "CadastroDeMarcas.xml";
+        private const string fileModelo = "CadastroDeModelos.xml";
+        private const string fileVeiculo = "CadastroDeVeiculos.xml";
+
+        public static string RetornarCaminhoArquivo(TelaCarregaOff tela)
+        {
+            string caminho = string.Empty;
+            switch (tela)
+            {
+                case TelaCarregaOff.Cores:
+                    caminho = pathFileXML + fileCor;
+                    break;
+                case TelaCarregaOff.Vendedor:
+                    caminho = pathFileXML + fileVendedor;
+                    break;
+                case TelaCarregaOff.Marca:
+                    caminho = pathFileXML + fileMarca;
+                    break;
+                case TelaCarregaOff.Modelo:
+                    caminho = pathFileXML + fileModelo;
+                    break;
+                case TelaCarregaOff.Veiculo:
+                    caminho = pathFileXML + fileVeiculo;
+                    break;
+            }
+            return caminho;
+        }
+
     }
 }

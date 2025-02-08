@@ -47,7 +47,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(17, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(765, 167);
+            this.groupBox1.Size = new System.Drawing.Size(1013, 177);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gerenciar informações";
@@ -58,18 +58,20 @@
             this.cbInfomacoes.FormattingEnabled = true;
             this.cbInfomacoes.Items.AddRange(new object[] {
             "Cor",
+            "Vendedor",
             "Marca",
             "Modelo",
-            "Vendedor"});
-            this.cbInfomacoes.Location = new System.Drawing.Point(201, 75);
+            "Veículo"});
+            this.cbInfomacoes.Location = new System.Drawing.Point(407, 71);
             this.cbInfomacoes.Name = "cbInfomacoes";
             this.cbInfomacoes.Size = new System.Drawing.Size(378, 28);
             this.cbInfomacoes.TabIndex = 4;
+            this.cbInfomacoes.SelectedIndexChanged += new System.EventHandler(this.cbInfomacoes_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 78);
+            this.label2.Location = new System.Drawing.Point(268, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 0;
@@ -79,12 +81,13 @@
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.DarkGreen;
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(297, 348);
+            this.btnCadastrar.Location = new System.Drawing.Point(451, 362);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(153, 51);
             this.btnCadastrar.TabIndex = 3;
             this.btnCadastrar.Text = "Gravar Online";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // groupBox2
             // 
@@ -94,7 +97,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(15, 218);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(765, 421);
+            this.groupBox2.Size = new System.Drawing.Size(1015, 434);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados Off-Line";
@@ -104,7 +107,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(4, 313);
+            this.label1.Location = new System.Drawing.Point(4, 332);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 16);
             this.label1.TabIndex = 4;
@@ -115,14 +118,14 @@
             this.grdDadosOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDadosOff.Location = new System.Drawing.Point(-3, 25);
             this.grdDadosOff.Name = "grdDadosOff";
-            this.grdDadosOff.Size = new System.Drawing.Size(759, 285);
+            this.grdDadosOff.Size = new System.Drawing.Size(1012, 304);
             this.grdDadosOff.TabIndex = 0;
             // 
             // frmSubirBanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 674);
+            this.ClientSize = new System.Drawing.Size(1042, 677);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

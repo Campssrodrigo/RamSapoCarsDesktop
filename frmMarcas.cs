@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace RamSapoCarsDesktop
 {
@@ -27,16 +29,26 @@ namespace RamSapoCarsDesktop
         {
             if (validarCampos())
             {
-                try
+                if (chkOffLine.Checked == false)
                 {
-                    Cadastrar();
-                    limparCampos();
-                    Consultar();
-                    Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                    try
+                    {
+                        Cadastrar();
+                        limparCampos();
+                        Consultar();
+                        Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
+                    }
+                    catch
+                    {
+                        Util.MostarMensagem(Util.TipoMensagem.Erro);
+                    }
                 }
-                catch
+
+                else
                 {
-                    Util.MostarMensagem(Util.TipoMensagem.Erro);
+                    GerarArquivoXML();
+                    limparCampos();
+                    Util.configurarBotoesTela(Util.EstadoTela.Nova, btnCadastrar, btnAlterar, btnExcluir);
                 }
 
             }
@@ -177,6 +189,35 @@ namespace RamSapoCarsDesktop
                 txtMarca.Focus();
             }
             return flag;
+        }
+
+        private void GerarArquivoXML()
+        {
+            XmlDocument xml = new XmlDocument();
+
+            if (!File.Exists(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Marca)))
+            {
+                XmlElement noMarca = xml.CreateElement("marca");
+                xml.AppendChild(noMarca);
+            }
+            else
+            {
+                xml.Load(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Marca));
+            }
+
+            XmlElement noItem = xml.CreateElement("item");
+
+            XmlElement noNome = xml.CreateElement("nome");
+            noNome.InnerText = txtMarca.Text.Trim();
+            noItem.AppendChild(noNome);
+
+
+            XmlNode xmlPai = xml.SelectSingleNode("marca");
+            xmlPai.AppendChild(noItem);
+
+            xml.Save(Util.RetornarCaminhoArquivo(Util.TelaCarregaOff.Marca));
+
+            Util.MostarMensagem(Util.TipoMensagem.Sucesso);
         }
         #endregion
     }

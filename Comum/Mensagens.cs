@@ -15,6 +15,9 @@ namespace RamSapoCarsDesktop.Comum
         public const string MSG_CONFIRMACAO = "Deseja excluir o registro?";
         public const string MSG_EMAIL_DUPLICADO = "E-mail já existente!";
         public const string MSG_EMAIL_INVALIDO = "E-mail inválido!";
+        public const string MSG_NAO_ENCONTRADO = "Registro não encontrado!";
+        public const string MSG_USUARIO_NAO_ENCONTRADO = "Usuário não encontrado!";
+        public const string MSG_ACAO_NAO_AUTORIZADA = "Não é possivel fazer o cadastro com informações de dois seguimentos diferentes";
        
        
     }

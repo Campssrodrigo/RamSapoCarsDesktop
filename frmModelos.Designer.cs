@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdModelos = new System.Windows.Forms.DataGridView();
+            this.chkOffLine = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdModelos)).BeginInit();
@@ -46,6 +47,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkOffLine);
             this.groupBox1.Controls.Add(this.cbMarca);
             this.groupBox1.Controls.Add(this.btnExcluir);
             this.groupBox1.Controls.Add(this.btnAlterar);
@@ -166,6 +168,16 @@
             this.grdModelos.TabIndex = 0;
             this.grdModelos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdModelos_CellClick);
             // 
+            // chkOffLine
+            // 
+            this.chkOffLine.AutoSize = true;
+            this.chkOffLine.Location = new System.Drawing.Point(610, 15);
+            this.chkOffLine.Name = "chkOffLine";
+            this.chkOffLine.Size = new System.Drawing.Size(137, 24);
+            this.chkOffLine.TabIndex = 7;
+            this.chkOffLine.Text = "Gravar Off-Line";
+            this.chkOffLine.UseVisualStyleBackColor = true;
+            // 
             // frmModelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.DataGridView grdModelos;
         private System.Windows.Forms.ComboBox cbMarca;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chkOffLine;
     }
 }

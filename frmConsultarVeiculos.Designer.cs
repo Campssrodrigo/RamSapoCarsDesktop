@@ -92,9 +92,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(68, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
+            this.label2.Size = new System.Drawing.Size(148, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nome do modelo";
+            this.label2.Text = "Selecione o modelo";
             // 
             // label1
             // 

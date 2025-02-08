@@ -1,4 +1,5 @@
-﻿using RamSapoCarsDesktop.Comum;
+﻿using DAO;
+using RamSapoCarsDesktop.Comum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,16 @@ namespace RamSapoCarsDesktop
         {
             if (validarCampos())
             {
-
+                tb_garagem objLogin = new UsuarioDAO().ValidarLogin(txtLogin.Text, txtSenha.Text);
+                if(objLogin == null)
+                {
+                    Util.MostarMensagem(Util.TipoMensagem.UsuarioNaoEncontrado);
+                }
+                else
+                {
+                    Util.CodigoGaragemLogada = objLogin.id_garagem;
+                    this.DialogResult = DialogResult.OK;
+                }
             }
         }
         #endregion

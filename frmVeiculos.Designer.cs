@@ -65,11 +65,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.chkOffLine = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkOffLine);
             this.groupBox1.Controls.Add(this.btnExcluir);
             this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Controls.Add(this.btnAlterar);
@@ -310,6 +312,7 @@
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(248, 28);
             this.cbMarca.TabIndex = 1;
+            this.cbMarca.SelectedIndexChanged += new System.EventHandler(this.cbMarca_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -461,6 +464,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Marca";
             // 
+            // chkOffLine
+            // 
+            this.chkOffLine.AutoSize = true;
+            this.chkOffLine.Location = new System.Drawing.Point(627, 15);
+            this.chkOffLine.Name = "chkOffLine";
+            this.chkOffLine.Size = new System.Drawing.Size(137, 24);
+            this.chkOffLine.TabIndex = 20;
+            this.chkOffLine.Text = "Gravar Off-Line";
+            this.chkOffLine.UseVisualStyleBackColor = true;
+            // 
             // frmVeiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,5 +532,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.ComboBox cbDirecao;
+        private System.Windows.Forms.CheckBox chkOffLine;
     }
 }

@@ -46,6 +46,7 @@
             this.grdVendedores = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNomePesquisa = new System.Windows.Forms.TextBox();
+            this.chkOffLine = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdVendedores)).BeginInit();
@@ -53,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkOffLine);
             this.groupBox1.Controls.Add(this.chkStatus);
             this.groupBox1.Controls.Add(this.txtTelefone);
             this.groupBox1.Controls.Add(this.btnExcluir);
@@ -243,6 +245,16 @@
             this.txtNomePesquisa.TabIndex = 10;
             this.txtNomePesquisa.TextChanged += new System.EventHandler(this.txtNomePesquisa_TextChanged);
             // 
+            // chkOffLine
+            // 
+            this.chkOffLine.AutoSize = true;
+            this.chkOffLine.Location = new System.Drawing.Point(556, 162);
+            this.chkOffLine.Name = "chkOffLine";
+            this.chkOffLine.Size = new System.Drawing.Size(137, 24);
+            this.chkOffLine.TabIndex = 10;
+            this.chkOffLine.Text = "Gravar Off-Line";
+            this.chkOffLine.UseVisualStyleBackColor = true;
+            // 
             // frmVendedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,5 +298,6 @@
         private System.Windows.Forms.CheckBox chkStatus;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNomePesquisa;
+        private System.Windows.Forms.CheckBox chkOffLine;
     }
 }
